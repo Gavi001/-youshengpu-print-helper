@@ -71,9 +71,9 @@ const noPrintParent = findParentWithClass(target, 'no-print'); // 向上查找�
 noPrintParent.classList.replace('no-print', 'print');
 ```
 
-2.  **按钮插入位置**（六线谱 / 和弦谱通用）：
+2.  **按钮插入位置**：
 
-    控制区域内 “循环” 按钮下方的`div`元素：
+    控制区域内 “打印曲谱” 按钮下方的`div`元素：
 
     `#c > div > div.layout > div.side > section.control > div:nth-child(2)`
 
@@ -95,7 +95,7 @@ target.parentNode.insertBefore(printBtn, target.nextSibling); // 插入到目标
 
 
 
-1.  **乐谱内容区域**（六线谱 / 和弦谱通用）：
+1.  **乐谱内容区域**：
 
     所有 SVG 乐谱的容器（核心打印区域）：
 
