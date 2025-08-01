@@ -31,17 +31,13 @@
 
 ### 二、各版本功能实现细节
 
-#### v1.0：解锁有声谱播放与完整查看
+#### v1.0：解锁有声谱播放
 
 **核心问题**：网站通过定时器限制播放，且隐藏部分打印区域。
 
 **实现步骤**：
 
-
-
 1.  **突破播放限制**：
-
-
 
 ```
 // 覆盖定时器函数，阻止播放限制触发
@@ -50,6 +46,11 @@ unsafeWindow.setTimeout = function() {};
 ```
 
 
+#### v2.0：新增智能打印按钮
+
+**核心问题**：网站原生 “打印曲谱” 按钮需 VIP，且打印内容不全。
+
+**实现步骤**：
 
 1.  **解除内容屏蔽**：
 
@@ -62,7 +63,6 @@ unsafeWindow.setTimeout = function() {};
 *   查找并替换`no-print`类：
 
 
-
 ```
 const target = document.querySelector('#c > div > div.layout > div.side > section.control');
 
@@ -71,21 +71,13 @@ const noPrintParent = findParentWithClass(target, 'no-print'); // 向上查找�
 noPrintParent.classList.replace('no-print', 'print');
 ```
 
-#### v2.0：新增智能打印按钮
-
-**核心问题**：网站原生 “打印曲谱” 按钮需 VIP，且打印内容不全。
-
-**实现步骤**：
-
-
-
-1.  **按钮插入位置**（六线谱 / 和弦谱通用）：
+2.  **按钮插入位置**（六线谱 / 和弦谱通用）：
 
     控制区域内 “循环” 按钮下方的`div`元素：
 
     `#c > div > div.layout > div.side > section.control > div:nth-child(2)`
 
-2.  **插入自定义按钮**：
+3.  **插入自定义按钮**：
 
 
 
@@ -181,8 +173,6 @@ const svgElements = document.querySelectorAll('#nier-scroll-view > div > div > d
 
 *   修复网站 "仅能打印第一页" 的限制，支持完整乐谱打印
 
-*   在页面控制区添加「🎼智能打印」按钮，一键触发打印流程
-
 *   优化按钮样式，融入页面设计，提升易用性
 
 *   新增智能分页算法，避免 SVG 元素跨页断裂，解决分页失败问题
@@ -191,9 +181,11 @@ const svgElements = document.querySelectorAll('#nier-scroll-view > div > div > d
 
 *   支持暗黑模式自动反色，解决白色文本打印不清问题
 
-#### v2.0 - 智能打印按钮上线
+#### v2.0 - 解锁打印
 
 
+
+*   在页面控制区添加「🎼智能打印」按钮，一键触发打印流程
 
 *   解除打印区域屏蔽，替换no-print类为print，确保内容可被打印捕获
 
