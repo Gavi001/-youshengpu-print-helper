@@ -221,7 +221,7 @@ const svgElements = document.querySelectorAll('#nier-scroll-view > div > div > d
 
 ## 共建邀请
 
-作为机械专业小白，代码全靠 AI 辅助 + 手动调试，肯定有很多漏洞：
+作为小白，代码全靠 AI 辅助 + 手动调试，肯定有很多漏洞：
 
 
 
