@@ -138,6 +138,23 @@ const svgElements = document.querySelectorAll('#nier-scroll-view > div > div > d
 
 }
 ```
+#### v4.5：下架曲谱解锁
+
+**实现步骤**：
+
+    GM_addStyle('.copyright-note {display:none;}')
+    setInterval(()=>{
+        Array.from(document.getElementsByClassName('copyright')).forEach((n)=>{
+          if (n.nodeName=='A'){
+              n.classList.remove('copyright');
+          }
+          if (n.nodeName=='DIV'&&n.parentNode.classList.contains('song-preview')){
+              n.classList.remove('copyright');
+              n.parentNode.getElementsByTagName('a')[0].href=n.parentNode.getElementsByTagName('a')[0].href.replace('song#title=','explore#q=').replace('&artist=',' ');
+          }
+        })
+    },1000)
+
 
 #### 和弦谱特有元素（v5.0 开发中）
 
@@ -157,7 +174,14 @@ const svgElements = document.querySelectorAll('#nier-scroll-view > div > div > d
 
 ## 更新日志
 
-#### v4.0 - 自定义打印设置上线
+#### v4.5 - 下架曲谱解锁
+
+
+
+*   新增解锁版权下架乐谱
+
+
+#### v4.0 - 自定义打印设置
 
 
 
