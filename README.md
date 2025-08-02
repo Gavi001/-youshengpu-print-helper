@@ -140,6 +140,8 @@ const svgElements = document.querySelectorAll('#nier-scroll-view > div > div > d
 ```
 #### v4.5：下架曲谱解锁
 
+**来源**：https://update.greasyfork.org.cn/scripts/493587/%E6%9C%89%E8%B0%B1%E4%B9%88%20Copyleft.user.js
+
 **实现步骤**：
 
     GM_addStyle('.copyright-note {display:none;}')
